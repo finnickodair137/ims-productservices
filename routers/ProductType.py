@@ -7,10 +7,10 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="http://localhost:4000/auth/token") 
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="https://authservices-npr8.onrender.com/auth/token") 
 router = APIRouter()
 
-BLOCKCHAIN_URL = "http://localhost:8006/blockchain/producttype"
+BLOCKCHAIN_URL = "https://ims-blockchain.onrender.com/blockchain/producttype"
 
 # models
 class ProductTypeCreateRequest(BaseModel):
@@ -23,7 +23,7 @@ class ProductTypeUpdateRequest(BaseModel):
 
 # auth check
 async def verify_admin(token: str = Depends(oauth2_scheme)):
-    USER_SERVICE_ME_URL = "http://localhost:4000/auth/users/me" 
+    USER_SERVICE_ME_URL = "https://authservices-npr8.onrender.com/auth/users/me" 
     async with httpx.AsyncClient() as client:
         try:
             response = await client.get(
@@ -242,7 +242,7 @@ async def update_product_type(
     sync_message_update = ""
     # send to POS
     if local_update_success:
-        SECONDARY_SERVICE_UPDATE_URL = f"http://localhost:9001/ProductType/{product_type_id}"
+        SECONDARY_SERVICE_UPDATE_URL = f"https://sessionservices.onrender.com/ProductType/{product_type_id}"
         async with httpx.AsyncClient() as client_to_9001:
             try:
                 payload_to_9001 = {
@@ -357,7 +357,7 @@ async def delete_product_type(
     sync_message_delete = ""
     # send to POS
     if local_delete_success:
-        SECONDARY_SERVICE_DELETE_URL = f"http://localhost:9001/ProductType/{product_type_id}"
+        SECONDARY_SERVICE_DELETE_URL = f"https://sessionservices.onrender.com/ProductType/{product_type_id}"
         async with httpx.AsyncClient() as client_to_9001:
             try:
                 headers_to_9001 = {"Authorization": f"Bearer {token}"}

@@ -27,26 +27,26 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         # IMS
-        "http://localhost:3000",
-        "http://192.168.100.10:3000",
-        "http://localhost:8001",
-        "http://127.0.0.1:8001",
+        "https://bleu-ims-beta.vercel.app",
+        # "http://192.168.100.10:3000",
+        "https://ims-productservices.onrender.com",
+        # "http://127.0.0.1:8001",
 
         # UMS
-        "http://127.0.0.1:4000",
-        "http://localhost:4000",
-        "http://192.168.100.10:4002",
-        "http://localhost:4002",
+        "https://authservices-npr8.onrender.com",
+        # "http://localhost:4000",
+        "https://bleu-ums-zeta.vercel.app",
+        # "http://localhost:4002",
 
         # POS
-        "http://localhost:9001",
-        "http://127.0.0.1:9001",
-        "http://192.168.100.10:4001",
-        "http://localhost:4001",
+        "https://sessionservices.onrender.com",
+        # "http://127.0.0.1:9001",
+        "https://bleu-ums-zeta.vercel.app/",
+        # "http://localhost:4001",
 
         # OOS
-        "http://localhost:5000",
-        "http://192.168.100.10:5000",
+        "https://bleu-oos-rouge.vercel.app",
+        # "http://192.168.100.10:5000",
 
     ],
     allow_credentials=True,
@@ -102,4 +102,4 @@ async def read_is_root():
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("main:app", port=8001, host="127.0.0.1", reload=True)
-    logger.info("IMS Main: Starting Uvicorn server on http://127.0.0.1:8001")
+    logger.info("IMS Main: Starting Uvicorn server on https://ims-productservices.onrender.com")
