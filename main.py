@@ -40,9 +40,7 @@ app.add_middleware(
 
         # POS
         "https://sessionservices.onrender.com",
-        # "http://127.0.0.1:9001",
-        "https://bleu-ums-zeta.vercel.app/",
-        # "http://localhost:4001",
+        "https://bleu-pos-tau.vercel.app",
 
         # OOS
         "https://bleu-oos-rouge.vercel.app",
