@@ -28,15 +28,11 @@ app.add_middleware(
     allow_origins=[
         # IMS
         "https://bleu-ims-beta.vercel.app",
-        # "http://192.168.100.10:3000",
         "https://ims-productservices.onrender.com",
-        # "http://127.0.0.1:8001",
 
         # UMS
         "https://authservices-npr8.onrender.com",
-        # "http://localhost:4000",
         "https://bleu-ums-zeta.vercel.app",
-        # "http://localhost:4002",
 
         # POS
         "https://sessionservices.onrender.com",
@@ -44,7 +40,6 @@ app.add_middleware(
 
         # OOS
         "https://bleu-oos-rouge.vercel.app",
-        # "http://192.168.100.10:5000",
 
     ],
     allow_credentials=True,
